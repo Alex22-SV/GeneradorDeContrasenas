@@ -42,7 +42,7 @@ body {
     display: grid;
     grid-template-columns: auto auto;
     row-gap: 1rem;
-    column-gap: 3rem;
+    column-gap: 2rem;
     justify-content: center;
     align-items: center;
     font-size: 20px;
@@ -117,4 +117,23 @@ input#characterAmountRange {
 .disabledBtn {
     cursor: not-allowed;
     background-color: #29175242;
+}
+@media(max-width:500px) {
+    label {
+        font-size: 20px;
+    }
+    .password-display {
+        font-size: 20px;
+    }
+    input {
+        width: 15px;
+        height: 15px;
+        font-size: 13px;
+    }
+    input#characterAmountRange {
+        width: 50px;
+    }
+    .form {
+        column-gap: 5px;
+    }
 }
