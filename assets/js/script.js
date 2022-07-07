@@ -62,6 +62,7 @@ function syncCharacterAmount(e) {
     if(value>0 || value<51) {
         submitBtn.disabled = false;
         submitBtn.classList.remove('disabledBtn');
+        warningMsg.classList.add('hidden')
         
     }
     if(value>50) {
@@ -69,18 +70,12 @@ function syncCharacterAmount(e) {
         warningMsg.innerHTML = `¡El número de caracteres no puede ser mayor a 50! <br> Has ingresado <b>${value}</b> que se encuentra ${value-50} caracteres arriba del valor permitido.`;
         submitBtn.classList.add('disabledBtn');
         submitBtn.disabled = true;
-        setTimeout(function() {
-            warningMsg.classList.add("hidden");
-        },3000)
     }
     if(value<1) {
       warningMsg.classList.remove("hidden");
         warningMsg.innerHTML = `¡El número de caracteres no puede ser menor a 1! <br> Has ingresado <b>${value}</b> que se encuentra ${1-value} caracteres abajo del valor permitido.`;
         submitBtn.classList.add('disabledBtn');
         submitBtn.disabled = true;
-        setTimeout(function() {
-            warningMsg.classList.add("hidden");
-        },5000)
     }
     
 };
