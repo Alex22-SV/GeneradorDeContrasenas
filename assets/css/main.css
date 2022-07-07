@@ -15,6 +15,16 @@
 .ff-quantum {
     font-family: 'Quantum';
 }
+
+body {
+    background: #f2f6f8;
+    background: -moz-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #f2f6f8), color-stop(51%, #ccdbe3), color-stop(69%, #d6e5f0), color-stop(100%, #e0eff9));
+    background: -webkit-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: -o-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: -ms-linear-gradient(left, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+    background: linear-gradient(to right, #f2f6f8 0%, #ccdbe3 51%, #d6e5f0 69%, #e0eff9 100%);
+}
 .mainTitle {
     align-items: center;
     text-align: center;
@@ -73,7 +83,7 @@ input#characterAmountRange {
     padding: 1rem;
     border: 5px solid #333;
     height: auto;
-    width: 450px;
+    max-width: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,6 +96,11 @@ input#characterAmountRange {
     font-size: 25px;
     color: red;
     font-weight: bold;
+    text-align: center;
+    margin: 10px 0 30px 0;
+}
+.hidden {
+    display: none;
 }
 .btn {
     width: 225px;
@@ -98,4 +113,8 @@ input#characterAmountRange {
     cursor: pointer;
     color: white;
     border-radius: 5px;
+}
+.disabledBtn {
+    cursor: not-allowed;
+    background-color: #29175242;
 }

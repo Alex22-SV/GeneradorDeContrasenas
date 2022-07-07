@@ -6,6 +6,7 @@ const includeSymbolsElement = document.getElementById('includeSymbols');
 const form = document.getElementById('passwordGeneratorForm');
 const passwordDisplay = document.getElementById('passwordDisplay');
 const warnings = document.getElementById('warnings');
+const warningMsg = document.getElementById('warningMsg');
 const submitBtn = document.getElementById('submitBtn');
 
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
@@ -60,26 +61,26 @@ function syncCharacterAmount(e) {
     characterAmountRange.value = value;
     if(value>0 || value<51) {
         submitBtn.disabled = false;
+        submitBtn.classList.remove('disabledBtn');
+        
     }
     if(value>50) {
-        let warningMsg = document.createElement('p');
-        warningMsg.classList.add("warning");
+        warningMsg.classList.remove("hidden");
         warningMsg.innerHTML = `¡El número de caracteres no puede ser mayor a 50! <br> Has ingresado <b>${value}</b> que se encuentra ${value-50} caracteres arriba del valor permitido.`;
-        warnings.append(warningMsg);
+        submitBtn.classList.add('disabledBtn');
         submitBtn.disabled = true;
         setTimeout(function() {
-            warnings.remove(warningMsg);
+            warningMsg.classList.add("hidden");
         },3000)
     }
     if(value<1) {
-        let warningMsg = document.createElement('p');
-        warningMsg.classList.add("warning");
-        warningMsg.innerHTML = `¡El número de caracteres no puede ser menor a 1! <br> Has ingresado <b>${value}</b> que se encuentra ${value-50} caracteres arriba del valor permitido.`;
-        warnings.append(warningMsg);
+      warningMsg.classList.remove("hidden");
+        warningMsg.innerHTML = `¡El número de caracteres no puede ser menor a 1! <br> Has ingresado <b>${value}</b> que se encuentra ${1-value} caracteres abajo del valor permitido.`;
+        submitBtn.classList.add('disabledBtn');
         submitBtn.disabled = true;
         setTimeout(function() {
-            warnings.remove(warningMsg);
-        },3000)
+            warningMsg.classList.add("hidden");
+        },5000)
     }
     
 };
